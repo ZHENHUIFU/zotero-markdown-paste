@@ -1,10 +1,10 @@
 {
   "addons": {
-    "markdown-paste@workbuddy.local": {
+    "zotero-markdown-paste@zhenhuifu.github.io": {
       "updates": [
         {
-          "version": "1.2.2",
-          "update_link": "https://github.com/ZHENHUIFU/zotero-markdown-paste/releases/download/v1.2.2/Zotero-Markdown-Paste-1.2.2.xpi",
+          "version": "1.2.3",
+          "update_link": "https://github.com/ZHENHUIFU/zotero-markdown-paste/releases/download/v1.2.3/Zotero-Markdown-Paste-1.2.3.xpi",
           "applications": {
             "zotero": {
               "strict_min_version": "7.0",

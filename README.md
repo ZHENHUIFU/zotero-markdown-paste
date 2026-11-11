@@ -129,7 +129,9 @@ addon/                       插件本体（= .xpi 的内容）
     paste.js                 paste 拦截、右键菜单、插入
     markdown-it.min.js       内置依赖（MIT，见 THIRD_PARTY_NOTICES.md）
 build.py                     打包成 .xpi（版本号读 manifest）
-scripts/test-converter.js    转换层离线用例（21 条断言，无需 Zotero）
+scripts/
+  test-converter.js          转换层离线用例（21 条断言，无需 Zotero）
+  check-release.py           发布前自检：ID / 版本 / 下载链接是否对得上
 examples/
   deepseek-sample.md         粘贴测试样例
 update.json                  Zotero 自动更新清单
@@ -146,7 +148,12 @@ python build.py
 
 # 只测转换层：不需要 Zotero，模拟 loadSubScript 的同一 global 环境
 node scripts/test-converter.js
+
+# 发布前自检：manifest 的 ID/版本 与 update.json、dist 产物名是否一致
+python scripts/check-release.py
 ```
+
+前两项对不上不会报错，只会让自动更新静默失效——所以发版前跑一下自检。
 
 改了 `converter.js` / `paste.js` 之后，重新打包、覆盖安装、重启 Zotero 即可调试。
 调试日志：**帮助 → 调试输出日志记录**，日志里搜 `MarkdownPaste`。
@@ -168,18 +175,19 @@ node scripts/test-converter.js
 
 ### 发一个版本
 
-1. 改 `addon/manifest.json` 的 `version`（例如 `1.2.3`），并在 `CHANGELOG.md` 记一笔
-2. 提交：`git commit -am "release 1.2.3"`
-3. 打 tag 并推送：
+1. 改 `addon/manifest.json` 的 `version`，并在 `CHANGELOG.md` 记一笔
+2. `python build.py && python scripts/check-release.py` 确认一致
+3. 提交：`git commit -am "release <版本>"`
+4. 打 tag 并推送（tag 名要和版本号对应）：
 
    ```bash
    git tag v1.2.3
    git push origin main --tags
    ```
 
-4. GitHub Actions 会自动跑 `build.py`，把 `dist/Zotero-Markdown-Paste-1.2.3.xpi`
+5. GitHub Actions 会自动跑 `build.py`，把 `dist/Zotero-Markdown-Paste-1.2.3.xpi`
    作为附件挂到该 tag 的 Release 上
-5. 更新 `update.json`：把 `version` 与 `update_link` 改成新版本，提交到 `main`
+6. 更新 `update.json`：把 `version` 与 `update_link` 改成新版本，提交到 `main`
 
 ### 自动更新怎么生效
 
@@ -190,7 +198,7 @@ Zotero 定期读取 `manifest.json` 里的 `update_url`（本仓库指向
 ```json
 {
   "addons": {
-    "markdown-paste@workbuddy.local": {
+    "zotero-markdown-paste@zhenhuifu.github.io": {
       "updates": [
         {
           "version": "1.2.3",

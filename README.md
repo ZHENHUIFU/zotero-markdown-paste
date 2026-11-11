@@ -236,6 +236,12 @@ Zotero 定期读取 `manifest.json` 里的 `update_url`（本仓库指向
 
 ---
 
+## 维护
+
+发版流程、Zotero 升级时的检查清单、回归清单见 [MAINTAINING.md](MAINTAINING.md)。
+
+---
+
 ## 许可证
 
 代码以 [MIT](LICENSE) 发布。内置的 markdown-it 为 MIT，见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。

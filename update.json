@@ -4,7 +4,7 @@
       "updates": [
         {
           "version": "1.2.2",
-          "update_link": "https://github.com/OWNER/REPO/releases/download/v1.2.2/Zotero-Markdown-Paste-1.2.2.xpi",
+          "update_link": "https://github.com/ZHENHUIFU/zotero-markdown-paste/releases/download/v1.2.2/Zotero-Markdown-Paste-1.2.2.xpi",
           "applications": {
             "zotero": {
               "strict_min_version": "7.0",

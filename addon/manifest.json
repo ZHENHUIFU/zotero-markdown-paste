@@ -4,11 +4,11 @@
   "version": "1.2.2",
   "description": "粘贴 Markdown 时自动把 \\(...\\) / \\[...\\] 转成 Zotero 可渲染的公式，并保留标题、列表、表格等格式。",
   "author": "ZHENHUIFU-F08",
-  "homepage_url": "https://github.com/OWNER/REPO",
+  "homepage_url": "https://github.com/ZHENHUIFU/zotero-markdown-paste",
   "applications": {
     "zotero": {
       "id": "markdown-paste@workbuddy.local",
-      "update_url": "https://raw.githubusercontent.com/OWNER/REPO/main/update.json",
+      "update_url": "https://raw.githubusercontent.com/ZHENHUIFU/zotero-markdown-paste/main/update.json",
       "strict_min_version": "7.0",
       "strict_max_version": "10.99.99"
     }

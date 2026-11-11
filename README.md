@@ -162,8 +162,9 @@ node scripts/test-converter.js
 
 ## 发布与自动更新
 
-> 首次发布前，把仓库里的 `OWNER/REPO` 全部替换成你的 GitHub 用户名和仓库名，
-> 涉及 **2 个文件**：`addon/manifest.json`（`homepage_url`、`update_url`）与 `update.json`。
+> 仓库地址已按 `ZHENHUIFU/zotero-markdown-paste` 填好，涉及 2 个文件：
+> `addon/manifest.json`（`homepage_url`、`update_url`）与 `update.json`。
+> 如果你 fork 后要自己发布，把这两处的 `ZHENHUIFU/zotero-markdown-paste` 换成自己的路径即可。
 
 ### 发一个版本
 
@@ -183,17 +184,17 @@ node scripts/test-converter.js
 ### 自动更新怎么生效
 
 Zotero 定期读取 `manifest.json` 里的 `update_url`（本仓库指向
-`https://raw.githubusercontent.com/OWNER/REPO/main/update.json`），比对 `update.json` 中的
+`https://raw.githubusercontent.com/ZHENHUIFU/zotero-markdown-paste/main/update.json`），比对 `update.json` 中的
 `version`，发现更高版本就去 `update_link` 下载。字段格式参照在实际使用中的 Zotero 插件：
 
 ```json
 {
   "addons": {
-    "<插件 ID>": {
+    "markdown-paste@workbuddy.local": {
       "updates": [
         {
           "version": "1.2.3",
-          "update_link": "https://github.com/OWNER/REPO/releases/download/v1.2.3/Zotero-Markdown-Paste-1.2.3.xpi",
+          "update_link": "https://github.com/ZHENHUIFU/zotero-markdown-paste/releases/download/v1.2.3/Zotero-Markdown-Paste-1.2.3.xpi",
           "applications": {
             "zotero": { "strict_min_version": "7.0", "strict_max_version": "10.99.99" }
           }

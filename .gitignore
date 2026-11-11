@@ -1,0 +1,12 @@
+# 构建产物（用 Releases 分发，不进版本库）
+dist/
+
+# Python
+__pycache__/
+*.pyc
+
+# 编辑器 / 系统
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

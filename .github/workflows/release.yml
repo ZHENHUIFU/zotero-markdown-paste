@@ -1,0 +1,29 @@
+name: release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      # 版本号取自 addon/manifest.json，产物名 Zotero-Markdown-Paste-<version>.xpi
+      - name: Build XPI
+        run: python build.py
+
+      - name: Attach XPI to release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*.xpi
+          generate_release_notes: true
